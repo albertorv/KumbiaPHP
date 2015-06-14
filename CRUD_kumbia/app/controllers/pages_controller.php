@@ -28,17 +28,17 @@
  */
 class PagesController extends ApplicationController 
 {
-	public function before_filter()
+	protected function before_filter()
 	{
+	    $this->limit_params = false;
 		// Si es AJAX enviar solo el view
-		if ($this->is_ajax()) {
-		  $this->set_response('view');
+		if (Input::isAjax()) {
+		  View::template(NULL);
 		}
     }
 	
-	public function show()
+		public function show()
 	{
-		$page = implode('/', $this->parameters);
-		$this->render($page);
+		View::select(implode('/', $this->parameters));
 	}
 }
