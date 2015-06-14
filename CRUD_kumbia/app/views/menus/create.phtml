@@ -1,0 +1,17 @@
+<?php View::content(); ?>
+<h3>Crear Nuevo Platillo<h3>
+ 
+<?php echo Form::open();?>
+ 
+        <label>Nombre
+        <?php echo Form::text('menus.nombre') ?></label>
+ 		<br>
+        <label>Categoría
+        <?php echo Form::text('menus.categoria') ?></label>
+ 		<br>
+		<label>Precio
+        <?php echo Form::text('menus.precio') ?></label>
+		<br>
+        <?php echo Form::submit('Agregar') ?>
+ 
+<?php echo Form::close() ?>
