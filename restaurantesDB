@@ -1,0 +1,10 @@
+create database Restaurante;
+use Restaurante;
+
+CREATE TABLE menus
+(
+ id           int            unique not null auto_increment,
+ nombre       varchar(100),
+ titulo       varchar(100)   not null,
+ primary key(id)
+)
