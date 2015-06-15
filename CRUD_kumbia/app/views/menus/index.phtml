@@ -1,0 +1,27 @@
+<div class="content">
+    <?php View::content(); ?>
+    <h3 ALIGN=center>Menú</h3>
+    <div ALIGN=center>
+        <table style="width:60%", border="1px">
+        <tr>
+            <td ALIGN=center><strong>Nombre</strong></td>            
+            <td ALIGN=center><strong>Categoría</strong></td>
+            <td ALIGN=center><strong>Precio</strong></td>
+            <td colspan="2" ALIGN=center><strong>Acciones</strong></td>
+        </tr>
+    <?php foreach ($listMenus->items as $item) : ?>
+        <tr>
+            <td ALIGN=center><?php echo $item->nombre ?></td>
+            <td ALIGN=center><?php echo $item->categoria ?></td>
+            <td ALIGN=center><?php echo $item->precio ?></td>
+            <td ALIGN=center><?php echo Html::linkAction("edit/$item->id/", 'Editar') ?></td>
+            <td ALIGN=center><?php echo Html::linkAction("delete/$item->id/", 'Borrar') ?></td>
+        </tr>
+    <?php endforeach; ?>
+
+        </table>
+    </div>
+
+    <?php if($listMenus->prev) echo Html::linkAction("index/$listMenus->prev/", '<< Anterior |'); ?>
+    <?php if($listMenus->next) echo Html::linkAction("index/$listMenus->next/", 'Próximo >>'); ?>
+</div>
